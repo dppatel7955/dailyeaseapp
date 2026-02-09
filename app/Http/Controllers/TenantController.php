@@ -14,7 +14,8 @@ class TenantController extends Controller
     public function index()
     {
         $tenants = Tenant::with('domains')->get();
-        return view('tenants.index',compact('tenants'));
+
+        return view('tenants.index', compact('tenants'));
     }
 
     /**
@@ -39,8 +40,9 @@ class TenantController extends Controller
         ]);
         $tenant = Tenant::create($validateData);
         $tenant->domains()->create([
-            'domain'=> $validateData['domain_name'].'.'.config('app.domain')
+            'domain' => $validateData['domain_name'].'.'.config('app.domain'),
         ]);
+
         return redirect()->route('tenants.index');
     }
 

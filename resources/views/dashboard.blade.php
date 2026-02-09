@@ -1,8 +1,6 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
-@section('title', 'Dashboard')
-@section('subtitle')
-@endsection
+@section('header', 'Dashboard')
 
 @section('content')
     <div class="py-12">
